@@ -150,12 +150,12 @@ internal let LK_DEVICE_IDS: (vendor: String, advertising: String) = {
 #elseif os(iOS) || os(tvOS)
     let vendorID = UIDevice.current.identifierForVendor?.uuidString ?? ""
     #if LogKitAdvertisingIDDisabled
-        let advertisingID = ""
     #else
-        let adManager = ASIdentifierManager.shared()
-        let advertisingID = (adManager?.isAdvertisingTrackingEnabled)! ? adManager?.advertisingIdentifier.uuidString : ""
+    if let adManager = ASIdentifierManager.shared(), adManager.isAdvertisingTrackingEnabled {
+        return (vendorID, adManager.advertisingIdentifier.uuidString)
+    }
     #endif
-    return (vendorID, advertisingID)
+    return (vendorID, "")
 #else
     return ("", "")
 #endif
