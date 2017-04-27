@@ -49,7 +49,7 @@ public struct LXLogEntry {
     /// The message provided during the logging call.
     public let message: String
     /// A dictionary of additional values to be provided to each Endpoint's `entryFormatter`.
-    public let userInfo: [String: AnyObject]
+    public let userInfo: [String: Any]
     /// The name of the Entry's Priority Level.
     public let level: String
     /// The number of seconds since the Unix epoch (midnight 1970-01-01 UTC).
@@ -101,32 +101,32 @@ public struct LXLogEntry {
 internal extension LXLogEntry {
 
     /// Returns the Log Entry as a dictionary.
-    internal func asMap() -> [String: AnyObject] {
+    internal func asMap() -> [String: Any] {
         return [
-            "logKitVersion": self.logKitVersion as AnyObject,
-            "message": self.message as AnyObject,
-            "userInfo": self.userInfo as AnyObject,
-            "level": self.level as AnyObject,
-            "timestamp": self.timestamp as AnyObject,
-            "dateTime": self.dateTime as AnyObject,
-            "functionName": self.functionName as AnyObject,
-            "fileName": self.fileName as AnyObject,
-            "filePath": self.filePath as AnyObject,
-            "lineNumber": self.lineNumber as AnyObject,
-            "columnNumber": self.columnNumber as AnyObject,
-            "threadID": self.threadID as AnyObject,
-            "threadName": self.threadName as AnyObject,
-            "isMainThread": self.isMainThread as AnyObject,
-            "osVersionString": self.osVersionString as AnyObject,
-            "osMajorVersion": self.osMajorVersion as AnyObject,
-            "osMinorVersion": self.osMinorVersion as AnyObject,
-            "osPatchVersion": self.osPatchVersion as AnyObject,
-            "osBuildVersion": self.osBuildVersion as AnyObject,
-            "bundleID": self.bundleID as AnyObject,
-            "deviceModel": self.deviceModel as AnyObject,
-            "deviceType": self.deviceType as AnyObject,
-            "deviceVendorID": self.deviceVendorID as AnyObject,
-            "deviceAdvertisingID": self.deviceAdvertisingID as AnyObject,
+            "logKitVersion": self.logKitVersion,
+            "message": self.message,
+            "userInfo": self.userInfo,
+            "level": self.level,
+            "timestamp": self.timestamp,
+            "dateTime": self.dateTime,
+            "functionName": self.functionName,
+            "fileName": self.fileName,
+            "filePath": self.filePath,
+            "lineNumber": self.lineNumber,
+            "columnNumber": self.columnNumber,
+            "threadID": self.threadID,
+            "threadName": self.threadName,
+            "isMainThread": self.isMainThread,
+            "osVersionString": self.osVersionString,
+            "osMajorVersion": self.osMajorVersion,
+            "osMinorVersion": self.osMinorVersion,
+            "osPatchVersion": self.osPatchVersion,
+            "osBuildVersion": self.osBuildVersion,
+            "bundleID": self.bundleID,
+            "deviceModel": self.deviceModel,
+            "deviceType": self.deviceType,
+            "deviceVendorID": self.deviceVendorID,
+            "deviceAdvertisingID": self.deviceAdvertisingID,
         ]
     }
 
